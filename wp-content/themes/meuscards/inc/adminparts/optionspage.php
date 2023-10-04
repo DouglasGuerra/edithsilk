@@ -49,8 +49,13 @@ function pagina_de_estatisticas ()
     echo '<pre>';
     var_dump($args);
     echo '</pre>';
-    
+
     $query = new WP_Query($args);
+
+    echo '<pre>';
+    var_dump($query);
+    echo '</pre>';
+    
 
     if ($query->have_posts()) :
         while ($query->have_posts()) :
