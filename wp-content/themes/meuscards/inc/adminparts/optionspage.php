@@ -69,7 +69,7 @@ function pagina_de_estatisticas ()
             '<img src="..." class="card-img-top" alt="...">'.
             '<div class="card-body">'.
                 '<h5 class="card-title"> '. get_the_title()  .' </h5>'.
-                '<p class="card-text"> '. the_excerpt() . '</p>'.
+                '<p class="card-text"> '. get_the_excerpt() . '</p>'.
                 '<p class="card-text"> '. get_post_status() . '</p>'.
                 '<a href="#" class="btn btn-primary"> '. the_date() .'</a>'.
             '</div>'.
