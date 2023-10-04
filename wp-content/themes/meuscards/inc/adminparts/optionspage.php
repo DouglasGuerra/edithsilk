@@ -46,6 +46,10 @@ function pagina_de_estatisticas ()
         'order' => 'DESC',        // Ordem decrescente (do mais recente para o mais antigo)
     );
 
+    echo '<pre>';
+    var_dump($args);
+    echo '</pre>';
+    
     $query = new WP_Query($args);
 
     if ($query->have_posts()) :
@@ -53,22 +57,20 @@ function pagina_de_estatisticas ()
             $query->the_post();
 
             // Faça algo com os posts, por exemplo, exibi-los
-            echo '<h2>' . get_the_title() . '</h2>';
-            echo '<div>' . get_the_content() . '</div>';
 
             $html = "";
 
+            $html .= '<div class="card" style="width: 18rem; ">' .
+            '<img src="..." class="card-img-top" alt="...">'.
+            '<div class="card-body">'.
+                '<h5 class="card-title"> '. get_the_title()  .' </h5>'.
+                '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'.
+                '<a href="#" class="btn btn-primary">Go somewhere</a>'.
+            '</div>'.
+            '</div>';
 
-           $html .= '<div class="card" style="width: 18rem; ">' .
-           '<img src="..." class="card-img-top" alt="...">'.
-           '<div class="card-body">'.
-               '<h5 class="card-title">Card title</h5>'.
-              '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>'.
-              '<a href="#" class="btn btn-primary">Go somewhere</a>'.
-           '</div>'.
-           '</div>';
-
-           echo $html;
+            echo $html;
+            
 
         endwhile;
         wp_reset_postdata(); // Restaura os dados do post original
