@@ -71,9 +71,9 @@ function pagina_de_estatisticas ()
             '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
             '<div class="card-body">'.
                 '<h5 class="card-title"> '. get_the_title() .' </h5>'.
+                '<span class="card-text"> '. get_post_status() . '</span>'.
                 '<p class="card-text"> '. get_the_excerpt() . '</p>'.
-                '<p class="card-text"> '. get_post_status() . '</p>'.
-                '<a href="#" class="btn btn-primary"> '. get_the_date() .'</a>'.
+                '<span class="card-text"> '. get_the_date() .'</span>'.
             '</div>'.
             '</div>';
 
