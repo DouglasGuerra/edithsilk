@@ -17,7 +17,7 @@ function chart($labels, $data){
         data: {
         labels: [<?php 
                 foreach($labels as $label){
-                    echo $label . ',' ;
+                    echo  ' " ' . $label . ' " '
                 }
 
             ?>],
