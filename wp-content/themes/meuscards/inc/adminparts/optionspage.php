@@ -50,51 +50,36 @@ function pagina_de_estatisticas ()
 
     <div class="container d-flex wrap justify-content-start">
         <div class="row gap-5">
-            <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                    <?php
-                    $query = new WP_Query($args);
-                    if ($query->have_posts()) :
-                        while ($query->have_posts()) :
-                            $query->the_post();
+            <?php
+            $query = new WP_Query($args);
+            if ($query->have_posts()) :
+                while ($query->have_posts()) :
+                    $query->the_post();
 //
-                            // Faça algo com os posts, por exemplo, exibi-los
+                    // Faça algo com os posts, por exemplo, exibi-los
 
-                            $html = "";
+                    $html = "";
 
-                            $get_image = get_field('imagem_do_projeto');
+                    $get_image = get_field('imagem_do_projeto');
 
-                            $html .= '<div class="carousel-item' . $query->post_count == 0 ?' active' : '' . '">'.
-                                '<div class="card p-0" style="width: 18rem; ">' .
-                                '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
-                                '<div class="card-body">'.
-                                '<h5 class="card-title"> '. get_the_title() .' </h5>'.
-                                '<span class="card-text"> '. get_post_status() . '</span>'.
-                                '<p class="card-text"> '. get_the_excerpt() . '</p>'.
-                                '<span class="card-text"> '. get_the_date() .'</span>'.
-                                '</div>'.
-                                '</div>'.
-                                '</div>';
+                    $html .= '<div class="card p-0" style="width: 18rem; ">' .
+                        '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
+                        '<div class="card-body">'.
+                        '<h5 class="card-title"> '. get_the_title() .' </h5>'.
+                        '<span class="card-text"> '. get_post_status() . '</span>'.
+                        '<p class="card-text"> '. get_the_excerpt() . '</p>'.
+                        '<span class="card-text"> '. get_the_date() .'</span>'.
+                        '</div>'.
+                        '</div>';
 
-                            echo $html;
-                            $i ++;
-                        endwhile;
-                        wp_reset_postdata(); // Restaura os dados do post original
-                    else :
-                        // Caso não haja posts
-                        'Nenhum projeto encontrado.';
-                    endif;
-                    ?>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                    echo $html;
+                endwhile;
+                wp_reset_postdata(); // Restaura os dados do post original
+            else :
+                // Caso não haja posts
+                'Nenhum projeto encontrado.';
+            endif;
+            ?>
         </div>
     </div>
     <?php
