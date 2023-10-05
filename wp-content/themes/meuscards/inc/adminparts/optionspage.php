@@ -60,9 +60,9 @@ function pagina_de_estatisticas ()
         <div class="row">
             <?php
                 $labels =[
-                        'Teste01,',
-                        'Teste02,',
-                        'Teste03,'
+                        'Teste01',
+                        'Teste02',
+                        'Teste03'
             ];
                 $data = [3, 5, 7];
             
