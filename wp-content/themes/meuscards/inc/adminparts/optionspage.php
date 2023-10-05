@@ -57,10 +57,7 @@ function pagina_de_estatisticas ()
                     if ($query->have_posts()) :
                         while ($query->have_posts()) :
                             $query->the_post();
-                            $i = 0;
-                            echo '<pre>';
-                            var_dump($query);
-                            echo '</pre>';
+//
                             // Faça algo com os posts, por exemplo, exibi-los
 
                             $html = "";
