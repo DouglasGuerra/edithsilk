@@ -35,8 +35,15 @@ add_action( 'admin_menu', 'painel_de_projetos' );
 
 function pagina_de_estatisticas ()
 {
+
+    $user ="";
+     if(is_user_logged_in()){
+        $user = wp_get_current_user();
+     }
     ?>
-    <h1>Olá <?php echo get_current_user() ?> </h1>
+
+
+    <h1>Olá <?php echo $user ?> </h1>
     <?php
 
     $args = array(
