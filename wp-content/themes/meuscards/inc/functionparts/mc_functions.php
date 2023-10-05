@@ -15,7 +15,7 @@ function chart($data){
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: $data[labels[0]],
+      labels: [$data[labels]],
       datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
@@ -32,6 +32,5 @@ function chart($data){
   });
 </script>
 
- <?php   
- var_dump($data);     
+ <?php        
 }
