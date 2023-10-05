@@ -67,7 +67,7 @@ function pagina_de_estatisticas ()
 
                             $get_image = get_field('imagem_do_projeto');
 
-                            $html .= '<div class="carousel-item' . $i == 0 ?'active' : '' . '">'.
+                            $html .= '<div class="carousel-item' . $query->post_count == 0 ?'active' : '' . '">'.
                                 '<div class="card p-0" style="width: 18rem; ">' .
                                 '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
                                 '<div class="card-body">'.
@@ -80,8 +80,7 @@ function pagina_de_estatisticas ()
                                 '</div>';
 
                             echo $html;
-
-                            $i++;
+                            $i ++;
                         endwhile;
                         wp_reset_postdata(); // Restaura os dados do post original
                     else :
