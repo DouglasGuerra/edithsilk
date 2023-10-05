@@ -15,7 +15,7 @@ function chart($data){
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: $data[labels],
+      labels: $data[labels[0]],
       datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
