@@ -58,7 +58,16 @@ function pagina_de_estatisticas ()
     <div class="container d-flex wrap justify-content-start">
 
         <div class="row">
-            <?php chart(); ?>
+            <?php
+                $data =[
+                    'labels' => [
+                        'Teste 01',
+                        'Teste 02',
+                        'Teste 03'
+                    ],
+                    'data' => [3, 5, 7]
+            ];
+            chart($data); ?>
         </div>
     
         <div class="row gap-5">
