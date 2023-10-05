@@ -36,7 +36,7 @@ add_action( 'admin_menu', 'painel_de_projetos' );
 function pagina_de_estatisticas ()
 {
     ?>
-    <h1>Olá <?php get_current_user() ?> </h1>
+    <h1>Olá <?php echo get_current_user() ?> </h1>
     <?php
 
     $args = array(
