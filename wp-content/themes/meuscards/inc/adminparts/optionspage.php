@@ -43,7 +43,7 @@ function pagina_de_estatisticas ()
     ?>
 
 
-    <h1>Olá <?php echo $user ?> </h1>
+    <h3 style="color: #c6c6c6;">Olá <?= $user ?> </h3>
     <?php
 
     $args = array(
@@ -56,6 +56,11 @@ function pagina_de_estatisticas ()
     ?>
 
     <div class="container d-flex wrap justify-content-start">
+
+        <div class="row">
+            <?php chart(); ?>
+        </div>
+    
         <div class="row gap-5">
             <?php
             $query = new WP_Query($args);
