@@ -1,5 +1,5 @@
 <?php
-
+require get_template_directory() . '/inc/functionparts/mc_functions.php';
 //function acf_painel_de_projetos()
 //{
 //    if (function_exists('acf_add_options_page'))
@@ -57,7 +57,19 @@ function pagina_de_estatisticas ()
 
     <div class="container d-flex wrap justify-content-start">
 
-        
+        <div class="row">
+            <?php
+                $data =[
+                    'labels' => [
+                        'Teste 01',
+                        'Teste 02',
+                        'Teste 03'
+                    ],
+                    'data' => [3, 5, 7]
+            ];
+            chart($data); ?>
+        </div>
+    
         <div class="row gap-5">
             <?php
             $query = new WP_Query($args);
