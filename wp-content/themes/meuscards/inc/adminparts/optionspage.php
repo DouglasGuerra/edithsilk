@@ -46,17 +46,10 @@ function pagina_de_estatisticas ()
         'order' => 'DESC',        // Ordem decrescente (do mais recente para o mais antigo)
     );
 
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
-
     $query = new WP_Query($args);
 
-    echo '<pre>';
-    var_dump($query);
-    echo '</pre>';
-
     ?>
+
     <div class="container d-flex justify-content-around">
         <?php
             if ($query->have_posts()) :
