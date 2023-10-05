@@ -67,7 +67,7 @@ function pagina_de_estatisticas ()
                     ],
                     'data' => [3, 5, 7]
             ];
-            chart($data); ?>
+            chart($data[]); ?>
         </div>
     
         <div class="row gap-5">
