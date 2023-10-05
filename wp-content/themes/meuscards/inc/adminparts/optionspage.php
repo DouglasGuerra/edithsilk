@@ -55,36 +55,41 @@ function pagina_de_estatisticas ()
     echo '<pre>';
     var_dump($query);
     echo '</pre>';
-    
 
-    if ($query->have_posts()) :
-        while ($query->have_posts()) :
-            $query->the_post();
+    ?>
+    <div class="container d-flex justify-content-around">
+        <?php
+            if ($query->have_posts()) :
+                while ($query->have_posts()) :
+                    $query->the_post();
 
-            // Faça algo com os posts, por exemplo, exibi-los
+                    // Faça algo com os posts, por exemplo, exibi-los
 
-            $html = "";
+                    $html = "";
 
-            $get_image = get_field('imagem_do_projeto');
+                    $get_image = get_field('imagem_do_projeto');
 
-            $html .= '<div class="card p-0" style="width: 18rem; ">' .
-            '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
-            '<div class="card-body">'.
-                '<h5 class="card-title"> '. get_the_title() .' </h5>'.
-                '<span class="card-text"> '. get_post_status() . '</span>'.
-                '<p class="card-text"> '. get_the_excerpt() . '</p>'.
-                '<span class="card-text"> '. get_the_date() .'</span>'.
-            '</div>'.
-            '</div>';
+                    $html .= '<div class="card p-0" style="width: 18rem; ">' .
+                        '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
+                        '<div class="card-body">'.
+                        '<h5 class="card-title"> '. get_the_title() .' </h5>'.
+                        '<span class="card-text"> '. get_post_status() . '</span>'.
+                        '<p class="card-text"> '. get_the_excerpt() . '</p>'.
+                        '<span class="card-text"> '. get_the_date() .'</span>'.
+                        '</div>'.
+                        '</div>';
 
-            echo $html;
-            
+                    echo $html;
 
-        endwhile;
-        wp_reset_postdata(); // Restaura os dados do post original
-    else :
-        // Caso não haja posts
-        'Nenhum projeto encontrado.';
-    endif;
+
+                endwhile;
+                wp_reset_postdata(); // Restaura os dados do post original
+            else :
+                // Caso não haja posts
+                'Nenhum projeto encontrado.';
+            endif;
+        ?>
+    </div>
+    <?php
 
 }
