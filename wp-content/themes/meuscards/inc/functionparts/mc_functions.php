@@ -17,14 +17,14 @@ function chart($labels, $data){
         data: {
         labels: [<?php 
                 foreach($labels as $label){
-                    echo $label . ',' ;
+                    echo toString($label) . ',' ;
                 }
 
             ?>],
         datasets: [{
             label: '# of Votes',
             data: [<?php foreach($data as $dado){
-                    echo $dado . ',' ;
+                    echo $dado;
 
             } ?>],
             borderWidth: 1
