@@ -64,7 +64,7 @@ function pagina_de_estatisticas ()
 
                             $get_image = get_field('imagem_do_projeto');
 
-                            $html .= '<div class="carousel-item active">'.
+                            $html .= '<div class="carousel-item">'.
                                 '<div class="card p-0" style="width: 18rem; ">' .
                                 '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
                                 '<div class="card-body">'.
