@@ -57,14 +57,14 @@ function pagina_de_estatisticas ()
                     if ($query->have_posts()) :
                         while ($query->have_posts()) :
                             $query->the_post();
-
+                            var_dump($query);
                             // Faça algo com os posts, por exemplo, exibi-los
 
                             $html = "";
 
                             $get_image = get_field('imagem_do_projeto');
 
-                            $html .= '<div class="carousel-item">'.
+                            $html .= '<div class="carousel-item' . 'active' . '">'.
                                 '<div class="card p-0" style="width: 18rem; ">' .
                                 '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
                                 '<div class="card-body">'.
