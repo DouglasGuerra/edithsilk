@@ -33,10 +33,9 @@ function chart($labels, $data){
 </script>
 
  <?php        
-    echo '<pre>';
-    var_dump($data);
-    var_dump($labels);
-    echo '</pre>';
+    echo $data;
+    echo $labels;
+    
 
 
 }
