@@ -1,5 +1,5 @@
 <?php
-require get_template_directory() . '/inc/functionparts/mc_functions.php';
+
 //function acf_painel_de_projetos()
 //{
 //    if (function_exists('acf_add_options_page'))
