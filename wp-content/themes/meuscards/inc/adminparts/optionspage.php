@@ -71,7 +71,7 @@ function pagina_de_estatisticas ()
                 '<h5 class="card-title"> '. get_the_title()  .' </h5>'.
                 '<p class="card-text"> '. get_the_excerpt() . '</p>'.
                 '<p class="card-text"> '. get_post_status() . '</p>'.
-                '<a href="#" class="btn btn-primary"> '. the_date() .'</a>'.
+                '<a href="#" class="btn btn-primary"> '. get_the_date() .'</a>'.
             '</div>'.
             '</div>';
 
