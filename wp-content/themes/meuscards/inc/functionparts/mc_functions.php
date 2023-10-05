@@ -1,6 +1,8 @@
 <?php
 function chart($data){
-    
+ echo '<pre>'  
+ var_dump($data);
+ echo '</pre>'
 ?>
     
     <div>
@@ -33,7 +35,5 @@ function chart($data){
 </script>
 
  <?php        
-  echo '<pre>'  
- var_dump($data);
- echo '</pre>'
+ 
 }
