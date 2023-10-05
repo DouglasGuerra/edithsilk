@@ -43,7 +43,7 @@ function pagina_de_estatisticas ()
     ?>
 
 
-    <h3>Olá <?php echo $user; ?> </h3>
+    <h3>Olá </h3>
     <?php
 
     $args = array(
