@@ -43,7 +43,7 @@ function pagina_de_estatisticas ()
     ?>
 
 
-    <h3 style="color: #c6c6c6;">Olá <?= $user ?> </h3>
+    <h3 style="color: #c6c6c6;">Olá <?php echo $user; ?> </h3>
     <?php
 
     $args = array(
@@ -58,7 +58,16 @@ function pagina_de_estatisticas ()
     <div class="container d-flex wrap justify-content-start">
 
         <div class="row">
-   
+            <?php
+                $data =[
+                    'labels' => [
+                        'Teste 01',
+                        'Teste 02',
+                        'Teste 03'
+                    ],
+                    'data' => [3, 5, 7]
+            ];
+            chart($data); ?>
         </div>
     
         <div class="row gap-5">
