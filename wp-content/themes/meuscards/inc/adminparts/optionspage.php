@@ -46,12 +46,12 @@ function pagina_de_estatisticas ()
         'order' => 'DESC',        // Ordem decrescente (do mais recente para o mais antigo)
     );
 
-    $query = new WP_Query($args);
-
     ?>
 
     <div class="container d-flex justify-content-around">
+        <div class="row">
         <?php
+            $query = new WP_Query($args);
             if ($query->have_posts()) :
                 while ($query->have_posts()) :
                     $query->the_post();
@@ -82,6 +82,7 @@ function pagina_de_estatisticas ()
                 'Nenhum projeto encontrado.';
             endif;
         ?>
+        </div>
     </div>
     <?php
 
