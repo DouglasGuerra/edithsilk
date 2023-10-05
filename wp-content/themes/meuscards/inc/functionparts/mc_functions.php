@@ -15,10 +15,10 @@ function chart($labels, $data){
     new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: <?=  print_r($labels) ?>,
+        labels: ['teste01','teste02','teste03'],
         datasets: [{
             label: '# of Votes',
-            data: <?=  print_r($data) ?>,
+            data: <?php echo $data ?>,
             borderWidth: 1
         }]
         },
