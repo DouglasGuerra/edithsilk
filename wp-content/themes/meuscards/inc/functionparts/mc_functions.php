@@ -15,10 +15,18 @@ function chart($labels, $data){
     new Chart(ctx, {
         type: 'bar',
         data: {
-        labels: ['teste01','teste02','teste03'],
+        labels: [<?php 
+                foreach($labels as $label){
+                    echo $label . ',' ;
+                }
+
+            ?>],
         datasets: [{
             label: '# of Votes',
-            data: <?php echo $data ?>,
+            data: [<?php foreach($data as $dado){
+                    echo $dado . ',' ;
+
+            } ?>],
             borderWidth: 1
         }]
         },
