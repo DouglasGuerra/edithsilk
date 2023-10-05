@@ -22,7 +22,7 @@ function chart($labels, $data){
 
             ?>],
         datasets: [{
-            label: '# of Votes',
+            label: 'Dashboard',
             data: [<?php foreach($data as $dado){
                     echo " $dado " . ',' ;
 

@@ -66,7 +66,7 @@ function pagina_de_estatisticas ()
                         'teste04',
                         'teste05',
             ];
-                $data = [3, 5, 7, 10, 15];
+                $data = [13, 15, 9, 5, 1];
             
 
             chart($labels, $data); ?>
