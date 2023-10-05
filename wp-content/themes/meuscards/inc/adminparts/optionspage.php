@@ -48,7 +48,7 @@ function pagina_de_estatisticas ()
 
     ?>
 
-    <div class="container d-flex justify-content-around">
+    <div class="container d-flex wrap justify-content-start">
         <div class="row">
         <?php
             $query = new WP_Query($args);
