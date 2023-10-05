@@ -57,16 +57,17 @@ function pagina_de_estatisticas ()
                     if ($query->have_posts()) :
                         while ($query->have_posts()) :
                             $query->the_post();
-//                            echo '<pre>';
-//                            var_dump($query);
-//                            echo '</pre>';
+                            $i = 0;
+                            echo '<pre>';
+                            var_dump($query);
+                            echo '</pre>';
                             // Faça algo com os posts, por exemplo, exibi-los
 
                             $html = "";
 
                             $get_image = get_field('imagem_do_projeto');
 
-                            $html .= '<div class="carousel-item' . $query->post_count == 0 ?'active' : '' . '">'.
+                            $html .= '<div class="carousel-item' . $i == 0 ?'active' : '' . '">'.
                                 '<div class="card p-0" style="width: 18rem; ">' .
                                 '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
                                 '<div class="card-body">'.
@@ -80,7 +81,7 @@ function pagina_de_estatisticas ()
 
                             echo $html;
 
-
+                            $i++;
                         endwhile;
                         wp_reset_postdata(); // Restaura os dados do post original
                     else :
