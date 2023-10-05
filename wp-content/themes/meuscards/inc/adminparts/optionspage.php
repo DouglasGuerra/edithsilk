@@ -49,7 +49,7 @@ function pagina_de_estatisticas ()
     ?>
 
     <div class="container d-flex wrap justify-content-start">
-        <div class="row">
+        <div class="row gap-5">
         <?php
             $query = new WP_Query($args);
             if ($query->have_posts()) :
