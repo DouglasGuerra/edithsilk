@@ -68,7 +68,7 @@ function pagina_de_estatisticas ()
             $get_image = get_field('imagem_do_projeto');
 
             $html .= '<div class="card" style="width: 18rem; ">' .
-            '<img src=" '. echo $get_image .' " class="card-img-top" alt="...">'.
+            '<img src=" '. $get_image .' " class="card-img-top" alt="...">'.
             '<div class="card-body">'.
                 '<h5 class="card-title"> '. get_the_title()  .' </h5>'.
                 '<p class="card-text"> '. get_the_excerpt() . '</p>'.
