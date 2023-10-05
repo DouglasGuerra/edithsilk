@@ -70,9 +70,10 @@ function pagina_de_estatisticas ()
             $html .= '<div class="card p-0" style="width: 18rem; ">' .
             '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
             '<div class="card-body">'.
-                '<h5 class="card-title"> '. get_the_title() .' </h5>'. '<span class="card-text"> '. get_the_date() .'</span>'
+                '<h5 class="card-title"> '. get_the_title() .' </h5>'.
                 '<span class="card-text"> '. get_post_status() . '</span>'.
                 '<p class="card-text"> '. get_the_excerpt() . '</p>'.
+                '<span class="card-text"> '. get_the_date() .'</span>'.
             '</div>'.
             '</div>';
 
