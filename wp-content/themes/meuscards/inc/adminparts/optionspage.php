@@ -78,62 +78,51 @@ function pagina_de_estatisticas ()
             if ($query->have_posts()) :
                 while ($query->have_posts()) :
                     $query->the_post();
-
+//
                     // Faça algo com os posts, por exemplo, exibi-los
 
                     $html = "";
 
                     $get_image = get_field('imagem_do_projeto');
 
-                    $html .= '<div class="card p-0" style="width: 18rem;">' .
-                        '<img src="' . $get_image . '" class="card-img-top" alt="...">' .
-                        '<div class="card-body">' .
-                        '<h5 class="card-title">' . get_the_title() . '</h5>' .
-                        '<span class="card-text">' . get_post_status() . '</span>' .
-                        '<p class="card-text">' . get_the_excerpt() . '</p>' .
-                        '<span class="card-text">' . get_the_date() . '</span>' .
-                        '<button class="btn btn-primary open-modal-button" data-toggle="modal" data-target="#postModal' . get_the_ID() . '">Abrir Modal</button>' .
-                        '</div>' .
+                    $html .= '<div class="card p-0" style="width: 18rem; ">' .
+                        '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
+                        '<div class="card-body">'.
+                        '<h5 class="card-title"> '. get_the_title() .' </h5>'.
+                        '<span class="card-text"> '. get_post_status() . '</span>'.
+                        '<p class="card-text"> '. get_the_excerpt() . '</p>'.
+                        '<span class="card-text"> '. get_the_date() .'</span>'.
+                        '</div>'.
+                            '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Launch demo modal
+                            </button>'.
                         '</div>';
 
                     echo $html;
                 endwhile;
+                ?>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            ...
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                <?php
                 wp_reset_postdata(); // Restaura os dados do post original
             else :
-                echo 'Nenhum projeto encontrado.';
-            endif;
-            ?>
-
-            <?php
-            $query = new WP_Query($args);
-            if ($query->have_posts()) :
-                while ($query->have_posts()) :
-                    $query->the_post();
-                    ?>
-                    <!-- Modal para cada post -->
-                    <div class="modal fade" id="postModal<?php echo get_the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="postModalLabel<?php echo get_the_ID(); ?>" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="postModalLabel<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- Conteúdo do modal para o post -->
-                                    <p><?php echo get_the_excerpt(); ?></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endwhile;
-                wp_reset_postdata();
-            else :
-                echo 'Nenhum projeto encontrado.';
+                // Caso não haja posts
+                'Nenhum projeto encontrado.';
             endif;
             ?>
         </div>
