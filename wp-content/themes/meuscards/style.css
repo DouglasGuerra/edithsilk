@@ -17,3 +17,10 @@ Tags:
     object-fit: cover;
 
 }
+.modal-body{
+
+    content-visibility: auto;
+}
+.image-modal{
+    width: -webkit-fill-available;
+}

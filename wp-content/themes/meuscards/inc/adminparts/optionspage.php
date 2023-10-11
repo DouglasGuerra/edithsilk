@@ -106,7 +106,7 @@ function pagina_de_estatisticas ()
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <img src="<?= $get_image ?>" alt="">
+                                    <img class="image-modal" src="<?= $get_image ?>" alt="">
                                     <?php  ?>
                                 </div>
                                 <div class="modal-footer">
