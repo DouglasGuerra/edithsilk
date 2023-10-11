@@ -99,6 +99,10 @@ function pagina_de_estatisticas ()
                         '</div>';
                     echo $html;
                 endwhile;
+                wp_reset_postdata(); // Restaura os dados do post original
+            else :
+                // Caso não haja posts
+                'Nenhum projeto encontrado.';
                 ?>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -125,10 +129,6 @@ function pagina_de_estatisticas ()
                         </div>
                     </div>
                 <?php
-                wp_reset_postdata(); // Restaura os dados do post original
-            else :
-                // Caso não haja posts
-                'Nenhum projeto encontrado.';
             endif;
             ?>
         </div>
