@@ -103,7 +103,7 @@ function pagina_de_estatisticas ()
                             <div class="modal-content">
                                 <?php
                                     echo '<pre>';
-                                    var_dump($query->posts->WP_post);
+                                    var_dump($query->posts['WP_post']);
                                     echo '</pre>';
                                 ?>
                                 <div class="modal-footer">
