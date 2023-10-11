@@ -103,7 +103,7 @@ function pagina_de_estatisticas ()
                             <div class="modal-content">
                                 <?php
                                     echo '<pre>';
-                                    var_dump($query->posts[0][0]);
+                                    var_dump($query->posts[0]['post_title']);
                                     echo '</pre>';
                                 ?>
                                 <div class="modal-footer">
