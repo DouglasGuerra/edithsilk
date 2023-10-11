@@ -101,14 +101,20 @@ function pagina_de_estatisticas ()
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?= get_the_title() ?></h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="image-modal" src="<?= $get_image ?>" alt="">
-                                    <?php  ?>
-                                </div>
+                                <?php
+                                    while ($query->have_posts()) :
+                                    $query->the_post();
+                                    echo '<div class="modal-header">' .
+                                        '<h1 class="modal-title fs-5" id="exampleModalLabel">' . get_the_title() . '</h1>' .
+                                        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' .
+                                    '</div>'.
+                                    // Faça algo com os posts, por exemplo, exibi-los
+                                        '<div class="modal-body">' .
+                                            . '<img src="' . $get_image . '">' .
+                                        '</div>';
+
+                                    endwhile;
+                                ?>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     <button type="button" class="btn btn-primary">Save changes</button>
