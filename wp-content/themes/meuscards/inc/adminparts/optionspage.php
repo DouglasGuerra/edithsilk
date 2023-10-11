@@ -103,7 +103,10 @@ function pagina_de_estatisticas ()
             else :
                 // Caso não haja posts
                 'Nenhum projeto encontrado.';
-                ?>
+            endif;
+            ?>
+        </div>
+        
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -128,10 +131,7 @@ function pagina_de_estatisticas ()
                             </div>
                         </div>
                     </div>
-                <?php
-            endif;
-            ?>
-        </div>
+                
     </div>
     <?php
 
