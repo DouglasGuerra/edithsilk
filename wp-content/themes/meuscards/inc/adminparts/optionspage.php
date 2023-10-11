@@ -102,7 +102,9 @@ function pagina_de_estatisticas ()
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <?php
+                                    echo '<pre>';
                                     var_dump($query);
+                                    echo '</pre>';
                                 ?>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
