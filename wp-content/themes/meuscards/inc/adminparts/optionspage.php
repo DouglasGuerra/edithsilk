@@ -110,7 +110,7 @@ function pagina_de_estatisticas ()
                                     '</div>'.
                                     // Faça algo com os posts, por exemplo, exibi-los
                                         '<div class="modal-body">' .
-                                            . '<img src="' . $get_image . '">' .
+                                            '<img src="' . $get_image . '">' .
                                         '</div>';
 
                                     endwhile;
