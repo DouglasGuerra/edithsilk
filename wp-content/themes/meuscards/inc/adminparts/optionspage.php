@@ -102,15 +102,7 @@ function pagina_de_estatisticas ()
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <?php
-                                    $query->the_post();
-                                    echo '<div class="modal-header">' .
-                                        '<h1 class="modal-title fs-5" id="exampleModalLabel">' . get_the_title() . '</h1>' .
-                                        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' .
-                                    '</div>'.
-                                    // Faça algo com os posts, por exemplo, exibi-los
-                                        '<div class="modal-body">' .
-                                            '<img src="' . $get_image . '">' .
-                                        '</div>';
+                                    var_dump($query);
                                 ?>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
