@@ -32,7 +32,7 @@ function pagina_de_estatisticas()
 
     <h3>Olá, <?= get_current_user() ?> </h3>
 
-    <div class="container-fluid">
+    <div class="container">
        <div class="col-6">
             <div>
                 <canvas id="barsChart"></canvas>
