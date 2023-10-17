@@ -33,13 +33,17 @@ function pagina_de_estatisticas()
     <h3>Olá, <?= get_current_user() ?> </h3>
 
     <div class="container-fluid">
-       
-        <div>
-            <canvas id="barsChart"></canvas>
+       <div class="col-6">
+            <div>
+                <canvas id="barsChart"></canvas>
+            </div>
         </div>
-        <div>
-            <canvas id="lineChart"></canvas>
-        </div>
+
+        <div class="col-6">
+            <div>
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>    
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
