@@ -94,7 +94,7 @@ function pagina_de_estatisticas()
         });
     </script>
 
-    <div class="container d-flex wrap justify-content-start">
+    <div class="container d-flex wrap justify-content-start ps-3">
         <div class="row gap-5" id="projects-container">
             <?php
             if ($query->have_posts()) :
