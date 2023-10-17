@@ -30,7 +30,7 @@ function pagina_de_estatisticas()
     $query = new WP_Query($args);
     ?>
 
-    <h3>Olá, <?= get_current_user() ?> </h3>
+    <h3 class="ms-3">Olá, <?= get_current_user() ?> </h3>
 
     <div class="container text-center">
         <div class="row align-items-start">
