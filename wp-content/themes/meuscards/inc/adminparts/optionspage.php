@@ -32,19 +32,22 @@ function pagina_de_estatisticas()
 
     <h3>Olá, <?= get_current_user() ?> </h3>
 
-    <div class="container">
-       <div class="col-6">
-            <div>
-                <canvas id="barsChart"></canvas>
-            </div>
-        </div>
+    <div class="container text-center">
+        <div class="row align-items-start">
 
-        <div class="col-6">
-            <div>
-                <canvas id="lineChart"></canvas>
+            <div class="col">
+                <div>
+                    <canvas id="barsChart"></canvas>
+                </div>
             </div>
-        </div>    
-    </div>
+            <div class="col">
+                <div>
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+  </div>
+</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
