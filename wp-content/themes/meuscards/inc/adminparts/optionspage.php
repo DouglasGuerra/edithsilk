@@ -21,8 +21,8 @@ include get_template_directory() . '/inc/functionparts/mc_functions.php';
 function painel_de_projetos()
 {
     add_menu_page(
-        __( 'Estatísticas', 'estatisticas' ),
-        __( 'Estatísticas', 'estatisticas' ),
+        __('Estatísticas', 'estatisticas'),
+        __('Estatísticas', 'estatisticas'),
         'manage_options',
         'estatisticas',
         'pagina_de_estatisticas',
@@ -31,15 +31,15 @@ function painel_de_projetos()
     );
 }
 
-add_action( 'admin_menu', 'painel_de_projetos' );
+add_action('admin_menu', 'painel_de_projetos');
 
-function pagina_de_estatisticas ()
+function pagina_de_estatisticas()
 {
 
-    $user ="";
-     if(is_user_logged_in()){
+    $user = "";
+    if (is_user_logged_in()) {
         $user = wp_get_current_user();
-     }
+    }
     ?>
 
 
@@ -59,19 +59,19 @@ function pagina_de_estatisticas ()
 
         <div class="row">
             <?php
-                $labels =[
-                        'Teste01',
-                        'Teste02',
-                        'Teste03',
-                        'teste04',
-                        'teste05',
+            $labels = [
+                'Teste01',
+                'Teste02',
+                'Teste03',
+                'teste04',
+                'teste05',
             ];
-                $data = [13, 15, 9, 5, 1];
-            
+            $data = [13, 15, 9, 5, 1];
+
 
             chart($labels, $data); ?>
         </div>
-    
+
         <div class="row gap-5">
             <?php
             $query = new WP_Query($args);
@@ -86,28 +86,26 @@ function pagina_de_estatisticas ()
                     $get_image = get_field('imagem_do_projeto');
 
                     $html .= '<div class="card p-0" style="width: 18rem; ">' .
-                        '<img src=" '. $get_image . ' " class="card-img-top" alt="...">'.
-                        '<div class="card-body">'.
-                        '<h5 class="card-title"> '. get_the_title() .' </h5>'.
-                        '<span class="card-text"> '. get_post_status() . '</span>'.
-                        '<p class="card-text"> '. get_the_excerpt() . '</p>'.
-                        '<span class="card-text"> '. get_the_date() .'</span>'.
-                        '</div>'.
-                            '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        '<img src=" ' . $get_image . ' " class="card-img-top" alt="...">' .
+                        '<div class="card-body">' .
+                        '<h5 class="card-title"> ' . get_the_title() . ' </h5>' .
+                        '<span class="card-text"> ' . get_post_status() . '</span>' .
+                        '<p class="card-text"> ' . get_the_excerpt() . '</p>' .
+                        '<span class="card-text"> ' . get_the_date() . '</span>' .
+                        '</div>' .
+                        '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-' . get_the_ID() . '">
                                 Launch demo modal
-                            </button>'.
+                            </button>' .
                         '</div>';
                     ?>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-<?= get_the_ID() ?>" tabindex="-1"
+                         aria-labelledby="modal-<?= get_the_ID() ?>Label" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
-                                <?php
-                                    echo '<pre>';
-                                    var_dump($query->posts[get_the_ID()]->post_title);
-                                    echo '</pre>';
-                                ?>
+                            <div class="modal-content">git
+                                <img src="<?= $get_image ?>" alt="">
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
                                     <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
