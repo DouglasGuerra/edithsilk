@@ -101,7 +101,7 @@ function pagina_de_estatisticas()
                     <div class="modal fade" id="modal-<?= get_the_ID() ?>" tabindex="-1"
                          aria-labelledby="modal-<?= get_the_ID() ?>Label" aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">git
+                            <div class="modal-content">
                                 <img src="<?= $get_image ?>" alt="">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
