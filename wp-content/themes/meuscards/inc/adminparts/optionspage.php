@@ -45,8 +45,8 @@ function pagina_de_estatisticas()
                     <canvas id="lineChart"></canvas>
                 </div>
             </div>
-  </div>
-</div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -102,6 +102,7 @@ function pagina_de_estatisticas()
                     $query->the_post();
                     // Exibir os cartões aqui
                     $get_image = get_field('imagem_do_projeto');
+                    $get_tasks = get_field('tarefas');
                     ?>
 
                     <div class="card p-0" style="width: 18rem;">
@@ -111,18 +112,40 @@ function pagina_de_estatisticas()
                             <span class="card-text"><?= get_post_status() ?></span>
                             <p class="card-text"><?= get_the_excerpt() ?></p>
                             <span class="card-text"><?= get_the_date() ?></span>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modal-<?= get_the_ID() ?>">
+                                Detalhes
+                            </button>
                         </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#modal-<?= get_the_ID() ?>">
-                            Detalhes
-                        </button>
                     </div>
 
-                    <div class="modal fade" id="modal-<?= get_the_ID() ?>" tabindex="-1"
+                    <div class="modal fade"
+                         id="modal-<?= get_the_ID() ?>" tabindex="-1"
                          aria-labelledby="modal-<?= get_the_ID() ?>Label" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="fw-bold"><?= get_the_title() ?></h3>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
                                 <img src="<?= $get_image ?>" alt="">
+                                <p class="px-2"><?= get_the_excerpt() ?></p>
+                                <ul class="list-group p-2">
+                                    <?php
+                                    foreach ($get_tasks as $task) {
+                                        echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
+                                        echo $task;
+                                        echo '<span class="badge bg-primary rounded-pill"><i class="bi bi-check-all"></i></span>
+                                    </li>';
+                                    }
+                                    ?>
+                                </ul>
+                                <?php
+                                foreach (get_approved_comments(get_the_ID()) as $comment) {
+                                    echo '<p class="px-4">' . $comment->comment_author . ' Comentou: ' . $comment->comment_content . '</p>';
+                                }
+                                ?>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                     </button>
