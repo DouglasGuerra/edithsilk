@@ -6,7 +6,7 @@ function painel_de_projetos()
     add_menu_page(
         __('Estatísticas', 'estatisticas'),
         __('Estatísticas', 'estatisticas'),
-        'manage_options',
+        'read',
         'estatisticas',
         'pagina_de_estatisticas',
         'dashicons-chart-bar',
