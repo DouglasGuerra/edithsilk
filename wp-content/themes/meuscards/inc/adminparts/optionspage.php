@@ -52,12 +52,17 @@ function pagina_de_estatisticas()
             </div>
             <div class="col-3">
                 <div class="">
-                    <h4><b>Resumo:</b></h4>
+                    <h4 class="pt-4"><b>Resumo</b></h4>
                     <ul class="list-group">
-                        <li class="list-group-item"><b>Projetos ativos:</b> <?= count($projetos_ativos) ?></li>
-                        <li class="list-group-item"><b>Projetos inativos:</b> <?= $projetos_inativos ?></li>
-                        <li class="list-group-item"><b>Total de projetos:</b> <?= $projetos ?></li>
-                        <li class="list-group-item"><b>Total de comentários:</b> <?= $comments ?></li>
+                        <li class="list-group-item"><b>Projetos ativos: </b><span
+                                    class="badge bg-primary rounded-pill"><?= count($projetos_ativos) ?></span>
+                        </li>
+                        <li class="list-group-item"><b>Projetos inativos: </b><span
+                                    class="badge bg-primary rounded-pill"><?= $projetos_inativos ?></span></li>
+                        <li class="list-group-item"><b>Total de projetos: </b><span
+                                    class="badge bg-primary rounded-pill"><?= $projetos ?></span></li>
+                        <li class="list-group-item"><b>Total de comentários: </b><span
+                                    class="badge bg-primary rounded-pill"><?= $comments ?></span></li>
                     </ul>
                 </div>
             </div>
