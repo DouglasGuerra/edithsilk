@@ -58,10 +58,10 @@ function pagina_de_estatisticas()
         new Chart(ctxBars, {
             type: 'bar',
             data: {
-                labels: ['Label 01', 'Label 02', 'Label 03', 'Label 04', 'Label 05', 'Label 06'],
+                labels: ['Projeto ativo'],
                 datasets: [{
                     label: 'Dashboard',
-                    data: [5, 6, 3, 1, 4, 2],
+                    data: [''],
                     borderWidth: 1
                 }]
             },
@@ -72,7 +72,8 @@ function pagina_de_estatisticas()
                     }
                 }
             }
-        });
+        })
+
 
         new Chart(ctxLine, {
             type: 'line',
@@ -108,29 +109,47 @@ function pagina_de_estatisticas()
                     <div class="card p-0" style="width: 18rem;">
                         <img src="<?= $get_image ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><?= get_the_title() ?></h5>
+                            <h5 class="card-title"><?= get_the_title() ?><?php
+                                if (get_field('projeto_concluido')) {
+                                    echo '<span class="position-absolute top-0 start-100 translate-middle px-1 bg-success border border-light rounded-3 shadow">
+                                          <span class="text-light"><i class="bi bi-check"></i></span>
+                                          </span>';
+                                } else {
+                                    echo '<span class="position-absolute top-0 start-100 translate-middle px-1 bg-warning border border-light rounded-3 shadow">
+                                          <span class="text-light"><i class="bi bi-caret-right-fill"></i></i></span>
+                                          </span>';
+                                }
+                                ?></h5>
                             <span class="card-text"><?= get_post_status() ?></span>
                             <p class="card-text"><?= get_the_excerpt() ?></p>
                             <span class="card-text"><?= get_the_date() ?></span>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            <button type="button" class=" mt-2 btn btn-primary w-100"
+                                    data-bs-toggle="modal"
                                     data-bs-target="#modal-<?= get_the_ID() ?>">
-                                Detalhes
+                                Detalhes <?php
+                                if (get_approved_comments(get_the_ID())) {
+                                    echo '<i class="bi bi-chat-dots-fill"> ' . count(get_approved_comments(get_the_ID())) . ' </i>';
+                                }
+                                ?>
                             </button>
                         </div>
                     </div>
 
                     <div class="modal fade"
                          id="modal-<?= get_the_ID() ?>" tabindex="-1"
-                         aria-labelledby="modal-<?= get_the_ID() ?>Label" aria-hidden="true">
+                         aria-labelledby="modal-<?= get_the_ID() ?>Label"
+                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                            <div class="modal-content">
+                            <div class="modal-content overflow-auto">
                                 <div class="modal-header">
                                     <h3 class="fw-bold"><?= get_the_title() ?></h3>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                 </div>
                                 <img src="<?= $get_image ?>" alt="">
-                                <p class="px-2"><?= get_the_excerpt() ?></p>
+                                <div class="container">
+                                    <p class="px-2 mt-4"><?= get_the_excerpt() ?></p>
+                                </div>
                                 <ul class="list-group p-2">
                                     <?php
                                     foreach ($get_tasks as $task) {
@@ -143,11 +162,11 @@ function pagina_de_estatisticas()
                                 </ul>
                                 <?php
                                 foreach (get_approved_comments(get_the_ID()) as $comment) {
-                                    echo '<p class="px-4">' . $comment->comment_author . ' Comentou: ' . $comment->comment_content . '</p>';
+                                    echo '<p class="px-4 text-break">' . $comment->comment_author . ' Comentou: ' . $comment->comment_content . '</p>';
                                 }
                                 ?>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar
                                     </button>
                                 </div>
                             </div>
