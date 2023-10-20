@@ -28,6 +28,16 @@ function pagina_de_estatisticas()
     );
 
     $query = new WP_Query($args);
+
+    $projetos_ativos = get_posts(array(
+        'post_type' => 'projeto', // Substitua pelo nome do seu tipo de post
+        'meta_key' => 'projeto_ativo',
+        'meta_value' => true
+    ));
+    $projetos = count(get_posts(array('post_type' => 'projeto')));
+    $projetos_inativos = $projetos - count($projetos_ativos);
+    $comments = count(get_comments());
+
     ?>
 
     <h3 class="ms-3">Olá, <?= get_current_user() ?> </h3>
@@ -35,16 +45,16 @@ function pagina_de_estatisticas()
     <div class="container text-center">
         <div class="row align-items-start">
 
-            <div class="col">
+            <div class="col-9">
                 <div>
                     <canvas id="barsChart"></canvas>
                 </div>
             </div>
-            <div class="col">
-                <div>
-                    <canvas id="lineChart"></canvas>
-                </div>
-            </div>
+            <!--            <div class="col">-->
+            <!--                <div>-->
+            <!--                    <canvas id="lineChart"></canvas>-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </div>
 
@@ -58,10 +68,10 @@ function pagina_de_estatisticas()
         new Chart(ctxBars, {
             type: 'bar',
             data: {
-                labels: ['Projeto ativo'],
+                labels: ['Projetos ativos', 'Projetos inativos', 'Total de projetos', 'Total de comentários'],
                 datasets: [{
-                    label: 'Dashboard',
-                    data: [''],
+                    label: 'Dados',
+                    data: ['<?= count($projetos_ativos)?>', '<?= $projetos_inativos ?>', '<?= $projetos ?>', '<?= $comments ?>'],
                     borderWidth: 1
                 }]
             },
@@ -75,24 +85,24 @@ function pagina_de_estatisticas()
         })
 
 
-        new Chart(ctxLine, {
-            type: 'line',
-            data: {
-                labels: ['Label 01', 'Label 02', 'Label 03', 'Label 04', 'Label 05', 'Label 06'],
-                datasets: [{
-                    label: 'Dashboard',
-                    data: [5, 6, 3, 1, 4, 2],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+        //new Chart(ctxLine, {
+        //    type: 'line',
+        //    data: {
+        //        labels: ['Users', 'Label 02', 'Label 03', 'Label 04', 'Label 05', 'Label 06'],
+        //        datasets: [{
+        //            label: 'Dashboard',
+        //            data: ['<?php //= user ?>//', 6, 3, 1, 4, 2],
+        //            borderWidth: 1
+        //        }]
+        //    },
+        //    options: {
+        //        scales: {
+        //            y: {
+        //                beginAtZero: true
+        //            }
+        //        }
+        //    }
+        //});
     </script>
 
     <div class="container d-flex wrap justify-content-start">
