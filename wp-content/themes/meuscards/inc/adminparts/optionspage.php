@@ -132,7 +132,7 @@ function pagina_de_estatisticas()
                                 ?></h5>
                             <span class="card-text"><?= get_post_status() ?></span>
                             <p class="card-text"><?= get_the_excerpt() ?></p>
-                            <span class="card-text"><?= get_the_date() ?></span>
+                            <span class="card-text">Data de criação: <?= get_the_date() ?></span>
                             <button type="button" class=" mt-2 btn btn-primary w-100"
                                     data-bs-toggle="modal"
                                     data-bs-target="#modal-<?= get_the_ID() ?>">
