@@ -52,6 +52,7 @@ function pagina_de_estatisticas()
             </div>
             <div class="col-3">
                 <div class="">
+                    <h4><b>Resumo:</b></h4>
                     <ul class="list-group">
                         <li class="list-group-item"><b>Projetos ativos:</b> <?= count($projetos_ativos) ?></li>
                         <li class="list-group-item"><b>Projetos inativos:</b> <?= $projetos_inativos ?></li>
