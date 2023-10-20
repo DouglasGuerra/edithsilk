@@ -165,7 +165,7 @@ function pagina_de_estatisticas()
 
                                     foreach ($get_tasks as $task) {
                                         echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
-                                        var_dump($task);
+                                        var_dump($task->value);
                                         echo '<span class="badge bg-primary rounded-pill"><i class="bi bi-check-all"></i></span>
                                     </li>';
                                     }
