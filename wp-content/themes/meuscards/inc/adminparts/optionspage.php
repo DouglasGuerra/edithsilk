@@ -162,10 +162,10 @@ function pagina_de_estatisticas()
                                 </div>
                                 <ul class="list-group p-2">
                                     <?php
-                                    var_dump($get_tasks);
+
                                     foreach ($get_tasks as $task) {
                                         echo '<li class="list-group-item d-flex justify-content-between align-items-center">';
-                                        echo $task;
+                                        var_dump($task);
                                         echo '<span class="badge bg-primary rounded-pill"><i class="bi bi-check-all"></i></span>
                                     </li>';
                                     }
