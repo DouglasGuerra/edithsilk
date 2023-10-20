@@ -50,11 +50,16 @@ function pagina_de_estatisticas()
                     <canvas id="barsChart"></canvas>
                 </div>
             </div>
-            <!--            <div class="col">-->
-            <!--                <div>-->
-            <!--                    <canvas id="lineChart"></canvas>-->
-            <!--                </div>-->
-            <!--            </div>-->
+            <div class="col-3">
+                <div class="">
+                    <ul class="list-group">
+                        <li class="list-group-item"><b>Projetos ativos:</b> <?= count($projetos_ativos) ?></li>
+                        <li class="list-group-item"><b>Projetos inativos:</b> <?= $projetos_inativos ?></li>
+                        <li class="list-group-item"><b>Total de projetos:</b> <?= $projetos ?></li>
+                        <li class="list-group-item"><b>Total de comentários:</b> <?= $comments ?></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
